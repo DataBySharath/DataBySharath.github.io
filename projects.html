@@ -1,489 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHARATH PUJAR - All Projects</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom font import (Inter) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            @apply bg-gray-100 text-gray-800; /* Default background and text color */
-        }
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
-        }
-        .filter-button.active {
-            @apply bg-blue-700 text-white shadow-lg;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects – Sharath Pujar</title>
+<meta name="description" content="Dashboards, data models and analyses by Sharath Pujar with Power BI, Fabric, SQL and Excel.">
+<meta name="theme-color" content="#0f1330">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1330;--bg2:#171c44;--card:#1b2150;--line:#2b3270;--text:#eceefb;--mute:#a4a9d6;--saffron:#ffb23e;--teal:#3fd6c6;--violet:#8b7bff;--r:18px;--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Instrument Sans',system-ui,sans-serif}
+:root[data-theme="light"]{--bg:#f6f5fb;--bg2:#fff;--card:#fff;--line:#dcdcf0;--text:#171a3d;--mute:#5a5f8f;--saffron:#d98400;--teal:#0f9d90;--violet:#5b4bdb}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f5fb;--bg2:#fff;--card:#fff;--line:#dcdcf0;--text:#171a3d;--mute:#5a5f8f;--saffron:#d98400;--teal:#0f9d90;--violet:#5b4bdb}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.65;font-size:17px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.3rem}.logo span{color:var(--saffron)}
+.links{display:flex;align-items:center;gap:6px}
+.links a{padding:8px 14px;border-radius:999px;color:var(--mute);font-weight:500;transition:.2s}
+.links a:hover,.links a.on{color:var(--text);background:var(--card)}
+.links .cta{background:var(--saffron);color:#1a1300;font-weight:600}
+.links .cta:hover{color:#1a1300;background:var(--saffron);filter:brightness(1.08)}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;display:grid;place-items:center;font-size:1.1rem}
+.burger{display:none}
+@media(max-width:760px){.burger{display:grid}.links{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;padding:14px 20px 20px;background:var(--bg2);border-bottom:1px solid var(--line);display:none}.links.open{display:flex}.links a{padding:12px 14px}}
+
+.top{padding:clamp(56px,8vw,96px) 0 28px;position:relative;overflow:hidden}
+.top::before{content:"";position:absolute;inset:-30% -10% auto auto;width:560px;height:560px;background:radial-gradient(circle,color-mix(in srgb,var(--teal) 28%,transparent),transparent 65%);pointer-events:none}
+.top h1{font-size:clamp(2.4rem,6.5vw,4.4rem);font-weight:800;position:relative;max-width:16ch}
+.top p{color:var(--mute);max-width:56ch;margin-top:16px;position:relative}
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:34px 0 26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--mute);font:inherit;font-weight:500;cursor:pointer;transition:.2s}
+.chip:hover{color:var(--text);border-color:var(--saffron)}
+.chip[aria-pressed="true"]{background:var(--saffron);border-color:var(--saffron);color:#1a1300;font-weight:600}
+.chip small{opacity:.7;margin-left:4px}
+.search{flex:1 1 220px;max-width:320px;padding:11px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+.search::placeholder{color:var(--mute)}
+.count{color:var(--mute);font-size:.95rem;margin-bottom:18px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px;padding-bottom:80px}
+.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--saffron)}
+.thumb{height:170px;position:relative;overflow:hidden}
+.thumb svg,.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.thumb b{position:absolute;top:12px;left:14px;z-index:1;font-family:var(--display);font-size:.85rem;color:#fff;background:rgba(0,0,0,.35);padding:2px 12px;border-radius:999px;font-weight:600}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.2rem;margin-bottom:8px}
+.card p{color:var(--mute);font-size:.95rem;margin-bottom:16px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.8rem;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
+.more{margin-top:16px;color:var(--saffron);font-weight:600}
+.empty{display:none;text-align:center;color:var(--mute);padding:40px 0 90px}
+.cta-band{border-radius:32px;padding:clamp(32px,6vw,60px);background:linear-gradient(135deg,var(--violet),#3a2aa8 55%,#0f6e8a);color:#fff;text-align:center;margin-bottom:80px}
+.cta-band h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+.cta-band p{opacity:.9;margin-bottom:22px}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:600;background:#fff;color:#241a7a;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--mute);font-size:.92rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-<body class="antialiased">
-    <!-- Header Section -->
-    <header class="bg-white shadow-md p-4 md:p-6 sticky top-0 z-50">
-        <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <a href="index.html" class="text-3xl font-extrabold text-blue-600 rounded-md p-2">
-                SHARATH <span class="text-gray-900">PUJAR</span>
-            </a>
-            <div class="mt-4 md:mt-0 space-x-4 flex justify-center">
-                <a href="index.html#about" class="text-gray-700 hover:text-blue-600 font-medium py-2 px-3 rounded-md transition-colors duration-200">About</a>
-                <a href="index.html#skills" class="text-gray-700 hover:text-blue-600 font-medium py-2 px-3 rounded-md transition-colors duration-200">Skills</a>
-                <a href="projects.html" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md">Projects</a>
-                <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 font-medium py-2 px-3 rounded-md transition-colors duration-200">Contact</a>
-            </div>
-        </nav>
-    </header>
+<body>
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a href="index.html" class="logo">Sharath<span>.</span>Pujar</a>
+    <div class="links" id="links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#credentials">Credentials</a>
+      <a href="index.html#journey">Journey</a>
+      <a href="projects.html" class="on" aria-current="page">Projects</a>
+      <a href="index.html#contact" class="cta">Contact</a>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="icon-btn" id="theme" aria-label="Toggle light or dark theme">☾</button>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links">☰</button>
+    </div>
+  </nav>
+</header>
 
-    <!-- Projects Hero Section -->
-    <section class="relative bg-gradient-to-r from-teal-500 to-emerald-600 text-white py-20 md:py-32 overflow-hidden rounded-b-3xl">
-        <div class="container mx-auto text-center px-4">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-                My Complete <span class="text-yellow-200">Project Portfolio</span>
-            </h1>
-            <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-                A showcase of my work, from web applications to data analysis, highlighting my skills and passion for creating.
-            </p>
-        </div>
-        <!-- Abstract shapes for background aesthetic -->
-        <div class="absolute top-0 left-0 w-48 h-48 bg-white opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 right-0 w-64 h-64 bg-yellow-200 opacity-10 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-    </section>
+<main>
+  <section class="top">
+    <div class="wrap">
+      <h1>Work that turns data into decisions</h1>
+      <p>Dashboards, data models and analyses built with Power BI, Microsoft Fabric, SQL and Excel. Filter by tool or search by topic.</p>
+    </div>
+  </section>
 
-    <!-- All Projects Grid -->
-    <section id="all-projects" class="py-16 md:py-24 bg-white shadow-sm">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-                Dive Deeper into My <span class="text-teal-600">Creations</span>
-            </h2>
+  <div class="wrap">
+    <div class="tools">
+      <div class="chips" id="chips" role="group" aria-label="Filter projects by tool"></div>
+      <input class="search" id="q" type="search" placeholder="Search projects" aria-label="Search projects">
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty">No projects match. Try another tool or clear the search.</p>
 
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="filter-button active bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md" data-filter="all">All Projects</button>
-                <button class="filter-button bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-300" data-filter="data-analytics">Data Analytics</button>
-                <button class="filter-button bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-300" data-filter="power-bi">Power BI</button>
-                <button class="filter-button bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-300" data-filter="tableau">Tableau</button>
-                <button class="filter-button bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-300" data-filter="sql">SQL</button>
-                <button class="filter-button bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-300" data-filter="excel">EXCEL</button>
-                <button class="filter-button bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-300" data-filter="data-science">Data Science</button>
-            </div>
+    <div class="cta-band">
+      <h2>Have a dataset that needs a story?</h2>
+      <p>Tell me what decision you need to make and I’ll design the dashboard around it.</p>
+      <a class="btn" href="mailto:pujarsharath10@gmail.com">Get in touch</a>
+    </div>
+  </div>
+</main>
 
-            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1: Data Analytics -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="data-analytics">
-                    <img src="https://placehold.co/600x350/C5D8F0/000000?text=Data+Project+1" alt="Project 1" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Customer Churn Analysis</h3>
-                        <p class="text-gray-600 mb-4">Analyzed customer data to identify factors leading to churn and proposed retention strategies.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Pandas</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Analytics</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 2: Power BI -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="power-bi">
-                    <img src="https://placehold.co/600x350/E6CCF0/000000?text=Power+BI+Dash" alt="Project 2" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Sales Performance Dashboard (Power BI)</h3>
-                        <p class="text-gray-600 mb-4">Interactive dashboard visualizing sales trends, regional performance, and key metrics.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Power BI</span>
-                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Visualization</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">SQL</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 3: Tableau -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="tableau">
-                    <img src="https://placehold.co/600x350/B3E0C8/000000?text=Tableau+Viz" alt="Project 3" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Marketing Campaign Effectiveness (Tableau)</h3>
-                        <p class="text-gray-600 mb-4">Visualized ROI of marketing campaigns, identifying most effective channels.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tableau</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Analytics</span>
-                            <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Dashboards</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 4: SQL -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="sql">
-                    <img src="https://placehold.co/600x350/D0E7F5/000000?text=SQL+Database" alt="Project 4" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Optimizing Database Queries (SQL)</h3>
-                        <p class="text-gray-600 mb-4">Refactored complex SQL queries to improve database performance and data retrieval speed.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">SQL</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Database Management</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Optimization</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 5: EXCEL -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="excel">
-                    <img src="https://placehold.co/600x350/F5D7C7/000000?text=Excel+Report" alt="Project 5" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Automated Inventory Management (Excel)</h3>
-                        <p class="text-gray-600 mb-4">Developed a robust Excel-based tool with VBA macros for efficient inventory tracking.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">EXCEL</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">VBA</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Automation</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 6: Data Science -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="data-science">
-                    <img src="https://placehold.co/600x350/C7F5D9/000000?text=Data+Science+Model" alt="Project 6" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Sentiment Analysis of Social Media Data</h3>
-                        <p class="text-gray-600 mb-4">Applied machine learning to analyze public sentiment from Twitter data for brand monitoring.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Science</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Machine Learning</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">NLP</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 7: Data Analytics -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="data-analytics">
-                    <img src="https://placehold.co/600x350/C5D8F0/000000?text=Data+Project+2" alt="Project 7" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Website Traffic Analysis</h3>
-                        <p class="text-gray-600 mb-4">Utilized web analytics tools to identify user behavior patterns and optimize site navigation.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Google Analytics</span>
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Analytics</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Reporting</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 8: Power BI -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="power-bi">
-                    <img src="https://placehold.co/600x350/E6CCF0/000000?text=Power+BI+Finance" alt="Project 8" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Financial Performance Report (Power BI)</h3>
-                        <p class="text-gray-600 mb-4">Created a dynamic financial report to track revenue, expenses, and profitability.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Power BI</span>
-                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Finance</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">DAX</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 9: Tableau -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="tableau">
-                    <img src="https://placehold.co/600x350/B3E0C8/000000?text=Tableau+HR" alt="Project 9" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">HR Attrition Dashboard (Tableau)</h3>
-                        <p class="text-gray-600 mb-4">Interactive dashboard visualizing employee attrition rates and related factors.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tableau</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">HR Analytics</span>
-                            <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Visualization</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 10: SQL -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="sql">
-                    <img src="https://placehold.co/600x350/D0E7F5/000000?text=SQL+Inventory" alt="Project 10" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Inventory Database Management (SQL)</h3>
-                        <p class="text-gray-600 mb-4">Designed and implemented a relational database for efficient inventory tracking.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">SQL</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Database Management</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Optimization</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 11: EXCEL -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="excel">
-                    <img src="https://placehold.co/600x350/F5D7C7/000000?text=Excel+Budget" alt="Project 11" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Personal Budget Tracker (Excel)</h3>
-                        <p class="text-gray-600 mb-4">Created an advanced Excel spreadsheet for personal budgeting and financial planning.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">EXCEL</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Formulas</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Financial Modeling</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 12: Data Science -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="data-science">
-                    <img src="https://placehold.co/600x350/C7F5D9/000000?text=Data+Science+Fraud" alt="Project 12" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Fraud Detection System (Data Science)</h3>
-                        <p class="text-gray-600 mb-4">Developed a machine learning model to identify and flag fraudulent transactions.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Science</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Supervised Learning</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 13: Data Analytics -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="data-analytics">
-                    <img src="https://placehold.co/600x350/ADD8E6/000000?text=Customer+Segmentation" alt="Project 13" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Customer Segmentation Analysis</h3>
-                        <p class="text-gray-600 mb-4">Segmented customer base using clustering techniques to target marketing efforts.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Clustering</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
-                            <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Analytics</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 14: Power BI -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="power-bi">
-                    <img src="https://placehold.co/600x350/ADD8E6/000000?text=Supply+Chain+PowerBI" alt="Project 14" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Supply Chain Performance (Power BI)</h3>
-                        <p class="text-gray-600 mb-4">Created a Power BI dashboard to monitor and optimize supply chain logistics.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Power BI</span>
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Logistics</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">KPIs</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 15: Tableau -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="tableau">
-                    <img src="https://placehold.co/600x350/ADD8E6/000000?text=Healthcare+Tableau" alt="Project 15" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Healthcare Patient Demographics (Tableau)</h3>
-                        <p class="text-gray-600 mb-4">Visualized patient demographics and health trends for a healthcare provider.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tableau</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Healthcare Data</span>
-                            <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Demographics</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 16: SQL -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="sql">
-                    <img src="https://placehold.co/600x350/ADD8E6/000000?text=E-commerce+SQL" alt="Project 16" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">E-commerce Data Analysis (SQL)</h3>
-                        <p class="text-gray-600 mb-4">Performed extensive data analysis on e-commerce transactions using complex SQL queries.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">SQL</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">E-commerce</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Extraction</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 17: EXCEL -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="excel">
-                    <img src="https://placehold.co/600x350/ADD8E6/000000?text=Excel+Sales" alt="Project 17" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Sales Forecasting Model (Excel)</h3>
-                        <p class="text-gray-600 mb-4">Developed a dynamic sales forecasting model using Excel's advanced features and pivot tables.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">EXCEL</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Forecasting</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Analysis</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 18: Data Science -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="data-science">
-                    <img src="https://placehold.co/600x350/ADD8E6/000000?text=Image+Recog" alt="Project 18" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Image Classification using Deep Learning</h3>
-                        <p class="text-gray-600 mb-4">Built a convolutional neural network (CNN) for image recognition tasks.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Science</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Deep Learning</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">TensorFlow</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 19: Data Analytics -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="data-analytics">
-                    <img src="https://placehold.co/600x350/ADD8E6/000000?text=Social+Media+Analytics" alt="Project 19" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Social Media Engagement Analysis</h3>
-                        <p class="text-gray-600 mb-4">Analyzed social media data to understand audience engagement and content performance.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Social Media</span>
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Data Analytics</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Insights</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Project Card 20: Power BI -->
-                <div class="project-card bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-300" data-category="power-bi">
-                    <img src="https://placehold.co/600x350/ADD8E6/000000?text=HR+PowerBI" alt="Project 20" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">HR Workforce Analytics (Power BI)</h3>
-                        <p class="text-gray-600 mb-4">Developed a Power BI report to analyze workforce demographics, performance, and trends.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Power BI</span>
-                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">HR</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Workforce Analytics</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            View Details
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- You can continue adding more project cards here -->
+<footer><div class="wrap">&copy; <span id="yr">2026</span> Sharath Pujar. Built with care and clean queries.</div></footer>
 
-            </div>
-        </div>
-    </section>
+<script>
+(function(){
+  var CATS={all:'All','power-bi':'Power BI','fabric':'Microsoft Fabric','sql':'SQL','excel':'Excel'};
+  var GRAD={'power-bi':'#f2a93b,#d9541e','fabric':'#35e0b5,#0a7f78','sql':'#5aa9ff,#2745b8','excel':'#4ccf8a,#0f7d4d'};
+  // Optional per-project fields: img (path to your own screenshot, e.g. 'assets/img/sales.png') and url (link to case study or live report).
+  var P=[
+   ['Sales Performance Dashboard','Interactive view of sales trends, regional performance and key metrics.','power-bi',['Power BI','DAX','SQL']],
+   ['Financial Performance Report','Dynamic report tracking revenue, expenses and profitability.','power-bi',['Power BI','DAX','Finance']],
+   ['Supply Chain Performance','Dashboard to monitor and optimize logistics KPIs.','power-bi',['Power BI','Logistics','KPIs']],
+   ['HR Workforce Analytics','Workforce demographics, performance and trends report.','power-bi',['Power BI','HR','Workforce']],
+   ['Lakehouse Reporting Pipeline','Ingest, transform and serve data in a Fabric lakehouse for downstream reports.','fabric',['Fabric','Lakehouse','Pipelines']],
+   ['Direct Lake Semantic Model','Governed semantic model on Fabric with fast, always-fresh Power BI reports.','fabric',['Fabric','Direct Lake','Power BI']],
+   ['Optimizing Database Queries','Refactored complex queries to speed up data retrieval.','sql',['SQL','Optimization']],
+   ['Inventory Database Management','Designed a relational database for inventory tracking.','sql',['SQL','Database design']],
+   ['E-commerce Data Analysis','Complex SQL analysis of e-commerce transactions.','sql',['SQL','Data extraction']],
+   ['Automated Inventory Management','Excel tool with VBA macros for efficient inventory tracking.','excel',['Excel','VBA','Automation']],
+   ['Sales Forecasting Model','Dynamic forecast built with pivot tables and advanced Excel.','excel',['Excel','Forecasting']],
+   ['Personal Budget Tracker','Advanced spreadsheet for budgeting and financial planning.','excel',['Excel','Formulas']]
+  ].map(function(p){return{t:p[0],d:p[1],c:p[2],g:p[3],i:p[4]||'',u:p[5]||''}});
 
-    <!-- Call to Action / Contact Section (similar to main page) -->
-    <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-purple-700 to-indigo-800 text-white rounded-t-3xl">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Discuss Your <span class="text-yellow-300">Next Project</span>?
-            </h2>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-90">
-                I'm always open to new opportunities and collaborations. Feel free to reach out!
-            </p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <!-- Replace with your actual social media links -->
-                <a href="#" class="text-white hover:text-blue-300 transition-colors duration-200">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="#" class="text-white hover:text-blue-300 transition-colors duration-200">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.084-.74-.084-.725-.084-.725 1.205.086 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.493.998.108-.776.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.293-1.552 3.3-1.23 3.3-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576c4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <!-- Add more social media icons as needed (e.g., Twitter, Instagram) -->
-            </div>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6">
-                You can also email me directly at: <a href="mailto:your.email@example.com" class="text-yellow-300 hover:underline">your.email@example.com</a>
-            </p>
-        </div>
-    </section>
+  // Generated dashboard-style preview, used when a project has no screenshot of its own.
+  function art(c,n){
+    function r(k){return ((n*37+k*91+13)%100)/100}
+    var W='rgba(255,255,255,',o='<svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid slice" aria-hidden="true">';
+    o+='<rect x="20" y="40" width="280" height="140" rx="12" fill="'+W+'.16)"/><circle cx="36" cy="54" r="3.5" fill="'+W+'.6)"/><circle cx="48" cy="54" r="3.5" fill="'+W+'.4)"/><circle cx="60" cy="54" r="3.5" fill="'+W+'.25)"/>';
+    var k;
+    if(c==='power-bi'){
+      for(k=0;k<3;k++)o+='<rect x="'+(34+k*88)+'" y="68" width="78" height="28" rx="7" fill="'+W+'.26)"/><rect x="'+(42+k*88)+'" y="76" width="30" height="5" rx="2" fill="'+W+'.7)"/><rect x="'+(42+k*88)+'" y="85" width="46" height="6" rx="2" fill="'+W+'.95)"/>';
+      var pts=[];for(k=0;k<9;k++){var h=20+r(k)*48;o+='<rect x="'+(40+k*17)+'" y="'+(176-h)+'" width="11" height="'+h+'" rx="3" fill="'+W+'.5)"/>';pts.push((45+k*17)+','+(150-r(k+9)*34))}
+      o+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><circle cx="244" cy="132" r="26" fill="none" stroke="'+W+'.35)" stroke-width="12"/><circle cx="244" cy="132" r="26" fill="none" stroke="#fff" stroke-width="12" stroke-dasharray="'+(60+r(3)*60)+' 200" transform="rotate(-90 244 132)"/>';
+    }else if(c==='sql'){
+      var w=[90,150,70,120,100,60];
+      for(k=0;k<6;k++)o+='<rect x="'+(34+(k%3===1?14:0))+'" y="'+(70+k*15)+'" width="'+(w[k]+r(k)*30)+'" height="7" rx="3" fill="'+W+(k%3===0?'.9)':'.45)')+'"/>';
+      for(k=0;k<5;k++){o+='<rect x="212" y="'+(68+k*20)+'" width="78" height="15" rx="4" fill="'+W+(k?'.2)':'.5)')+'"/>';o+='<rect x="217" y="'+(73+k*20)+'" width="'+(20+r(k+4)*40)+'" height="5" rx="2" fill="'+W+'.8)"/>'}
+    }else if(c==='excel'){
+      for(var a=0;a<5;a++)for(k=0;k<6;k++)o+='<rect x="'+(34+k*26)+'" y="'+(68+a*21)+'" width="23" height="17" rx="3" fill="'+W+(a===0?'.5)':(r(a*7+k)>.7?'.4)':'.18)'))+'"/>';
+      for(k=0;k<4;k++){var hh=18+r(k+2)*44;o+='<rect x="'+(212+k*20)+'" y="'+(170-hh)+'" width="14" height="'+hh+'" rx="3" fill="'+W+'.65)"/>'}
+    }else{
+      var xs=[36,100,164,228],ys=[96,120,96,120];
+      for(k=0;k<3;k++)o+='<line x1="'+(xs[k]+44)+'" y1="'+(ys[k]+12)+'" x2="'+xs[k+1]+'" y2="'+(ys[k+1]+12)+'" stroke="'+W+'.7)" stroke-width="2.5" stroke-dasharray="5 4"/>';
+      for(k=0;k<4;k++)o+='<rect x="'+xs[k]+'" y="'+ys[k]+'" width="56" height="26" rx="8" fill="'+W+(k===1?'.55)':'.3)')+'"/><rect x="'+(xs[k]+9)+'" y="'+(ys[k]+10)+'" width="38" height="6" rx="3" fill="'+W+'.95)"/>';
+    }
+    return o+'</svg>';
+  }
 
-    <!-- Footer Section -->
-    <footer class="bg-gray-900 text-gray-400 py-8">
-        <div class="container mx-auto text-center px-4">
-            <p>&copy; 2025 SHARATH PUJAR. All rights reserved.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="#" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors duration-200">Terms of Service</a>
-            </div>
-        </div>
-    </footer>
+  var grid=document.getElementById('grid'),chips=document.getElementById('chips'),q=document.getElementById('q'),cur='all';
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-button');
-            const projectCards = document.querySelectorAll('.project-card');
+  Object.keys(CATS).forEach(function(k){
+    var n=k==='all'?P.length:P.filter(function(p){return p.c===k}).length;
+    var b=document.createElement('button');b.type='button';b.className='chip';b.dataset.k=k;
+    b.setAttribute('aria-pressed',k==='all');b.innerHTML=CATS[k]+'<small>'+n+'</small>';
+    b.onclick=function(){cur=k;[].forEach.call(chips.children,function(x){x.setAttribute('aria-pressed',x===b)});render()};
+    chips.appendChild(b);
+  });
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-700', 'text-white', 'shadow-lg'));
-                    filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-800', 'hover:bg-gray-300'));
+    function render(){
+    var term=q.value.trim().toLowerCase(),shown=0,html='';
+    P.forEach(function(p,i){
+      var hit=(cur==='all'||p.c===cur)&&(!term||(p.t+' '+p.d+' '+p.g.join(' ')).toLowerCase().indexOf(term)>-1);
+      if(!hit)return;shown++;
+      var th=p.i?'<img src="'+esc(p.i)+'" alt="'+esc(p.t)+' preview" loading="lazy">':art(p.c,i);
+      var tag=p.u?'a':'div',href=p.u?' href="'+esc(p.u)+'"':'';
+      html+='<'+tag+href+' class="card"><div class="thumb" style="background:linear-gradient(135deg,'+GRAD[p.c]+')"><b>'+CATS[p.c]+'</b>'+th+'</div><div class="body"><h3>'+esc(p.t)+'</h3><p>'+esc(p.d)+'</p><div class="tags">'+p.g.map(function(t){return'<span>'+esc(t)+'</span>'}).join('')+'</div>'+(p.u?'<span class="more">View project</span>':'')+'</div></'+tag+'>';
+    });
+    grid.innerHTML=html;
+    document.getElementById('count').textContent='Showing '+shown+' of '+P.length+' projects';
+    document.getElementById('empty').style.display=shown?'none':'block';
+  }
+  q.oninput=render;render();
 
-                    // Add active class to the clicked button
-                    button.classList.add('active', 'bg-blue-700', 'text-white', 'shadow-lg');
-                    button.classList.remove('bg-gray-200', 'text-gray-800', 'hover:bg-gray-300');
-
-
-                    const filterCategory = button.dataset.filter;
-
-                    projectCards.forEach(card => {
-                        const cardCategory = card.dataset.category;
-
-                        if (filterCategory === 'all' || cardCategory === filterCategory) {
-                            card.style.display = 'block'; // Show the card
-                        } else {
-                            card.style.display = 'none'; // Hide the card
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+  var root=document.documentElement,tbtn=document.getElementById('theme');
+  function isLight(){return root.dataset.theme?root.dataset.theme==='light':matchMedia('(prefers-color-scheme: light)').matches}
+  function paint(){tbtn.textContent=isLight()?'☾':'☀'}
+  try{var t=localStorage.getItem('theme');if(t)root.dataset.theme=t}catch(e){}
+  paint();
+  tbtn.onclick=function(){var n=isLight()?'dark':'light';root.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}paint()};
+  var burger=document.getElementById('burger'),links=document.getElementById('links');
+  burger.onclick=function(){var o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o)};
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
