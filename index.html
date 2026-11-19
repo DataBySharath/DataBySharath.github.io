@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sharath Pujar – Data Analytics &amp; BI Consultant</title>
-<meta name="description" content="Sharath Pujar is a Consulting Analyst with 3+ years in data analytics and BI, building Power BI dashboards and data models for global clients.">
+<meta name="description" content="Sharath Pujar is a Data Analytics Consultant with 3+ years building Power BI and Microsoft Fabric solutions for global enterprise clients.">
 <meta name="theme-color" content="#0f1330">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,15 +126,13 @@ nav{display:flex;align-items:center;justify-content:space-between;height:68px}
 .cert h3{font-size:1.1rem;margin-bottom:2px}
 .cert span{color:var(--mute);font-size:.9rem}
 
-/* journey timeline: a real sequence */
-.skills + section .wrap > .lead{margin-bottom:8px}
-.timeline{list-style:none;margin-top:36px;position:relative;padding-left:30px;border-left:2px solid var(--line)}
-.timeline li{position:relative;padding:0 0 34px 18px}
-.timeline li::before{content:"";position:absolute;left:-40px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--saffron)}
-.timeline li:first-child::before{background:var(--saffron);box-shadow:0 0 0 6px color-mix(in srgb,var(--saffron) 25%,transparent)}
-.timeline h3{font-size:1.25rem}
-.timeline small{color:var(--teal);font-weight:600}
-.timeline p{color:var(--mute);max-width:62ch;margin-top:4px}
+/* experience */
+.sectors{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.sectors span{padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--teal);font-weight:600;font-size:.92rem}
+.tw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:34px}
+.tg{display:flex;flex-wrap:wrap;gap:6px}
+.tg span{font-size:.8rem;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
+.tw-note{margin-top:22px;color:var(--mute);font-size:.95rem;max-width:70ch}
 
 /* projects teaser */
 .work{background:linear-gradient(135deg,var(--violet),#3a2aa8 55%,#0f6e8a);border-radius:32px;padding:clamp(32px,6vw,64px);color:#fff;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;overflow:hidden;position:relative}
@@ -174,7 +172,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#credentials">Credentials</a>
-      <a href="#journey">Journey</a>
+      <a href="#experience">Experience</a>
+      <a href="https://drive.google.com/file/d/1J_YTUj41FT4mF-oO3naW2Wlmo0nioYhm/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
       <a href="projects.html">Projects</a>
       <a href="#contact" class="cta">Contact</a>
     </div>
@@ -189,12 +188,13 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="tag"><img src="assets/img/sharath_Pujar_new.jpg" alt="" width="30" height="30">Consulting Analyst at Twimbit</span>
+      <span class="tag"><img src="assets/img/sharath_Pujar_new.jpg" alt="" width="30" height="30">Data Analytics Consultant</span>
       <h1>I turn raw data into <em>decisions</em> people trust.</h1>
       <div class="role" id="role" aria-live="off"></div>
       <p class="dharma">I don’t chase results, I honor my role. With every clean query and honest insight, I fulfill my karma, and through clarity, curiosity and ethics I walk my dharma as a data analyst.</p>
       <div class="btns">
         <a class="btn primary" href="projects.html">View my work</a>
+        <a class="btn ghost" href="https://drive.google.com/file/d/1J_YTUj41FT4mF-oO3naW2Wlmo0nioYhm/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
         <a class="btn ghost" href="#contact">Let’s talk</a>
       </div>
     </div>
@@ -216,9 +216,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 <section style="padding-top:0">
   <div class="wrap stats">
     <div class="stat"><b data-n="3" data-s="+">0</b><span>years in data analytics and BI</span></div>
-    <div class="stat"><b data-n="3">0</b><span>industries served: ICT, finance, infrastructure</span></div>
-    <div class="stat"><b data-n="3">0</b><span>Microsoft credentials earned</span></div>
-    <div class="stat"><b data-n="9.1" data-d="1">0</b><span>CGPA in M.E. Information Sciences</span></div>
+    <div class="stat"><b data-n="8" data-s="+">0</b><span>global enterprise clients across banking, ICT and infrastructure</span></div>
+    <div class="stat"><b data-n="2">0</b><span>CEO Special Awards, 2024 and 2025</span></div>
+    <div class="stat"><b data-n="35" data-s="%">~0</b><span>less manual reporting through dashboard automation</span></div>
   </div>
 </section>
 
@@ -227,8 +227,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
     <div class="photo"><img src="assets/img/profileBackGround.jpeg" alt="Sharath Pujar" loading="lazy"></div>
     <div>
       <h2>From classroom to clean dashboards</h2>
-      <p>I’m <strong>Sharath Pujar</strong>, a Consulting Analyst at Twimbit with over three years in data analytics and BI consulting. I build executive-ready <strong>Power BI</strong> dashboards and data models for global clients in ICT, financial services and infrastructure.</p>
-      <p>My path started with a deep curiosity about the stories numbers tell. After an M.E. in Information Sciences from Manipal, I worked in medical imaging and taught as an assistant professor before moving into analytics full time.</p>
+      <p>I’m <strong>Sharath Pujar</strong>, a Data Analytics Consultant with over three years of experience across banking, ICT and infrastructure. I build scalable <strong>Power BI</strong> and <strong>Microsoft Fabric</strong> solutions and deliver insights to CXO stakeholders in the US and Middle East.</p>
+      <p>My path started with a deep curiosity about the stories numbers tell. After an M.E. in Information Sciences from Manipal (9.1 CGPA), I worked on medical imaging and taught as an assistant professor before moving into analytics full time.</p>
       <p>I like turning messy requirements into models that stay accurate, reports that refresh on their own, and visuals a CXO can read in ten seconds.</p>
       <p>Off the clock I play chess, follow technology trends and tinker with productivity systems.</p>
     </div>
@@ -240,37 +240,42 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
     <h2>What I work with</h2>
     <p class="lead">Tools I use every week to move from raw rows to a decision.</p>
     <div class="skill-grid">
-      <article class="skill"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3>Power BI</h3><p>Dashboards, DAX, data modeling, row-level security, executive reporting.</p><div class="meter"><i data-w="95"></i></div></article>
-      <article class="skill"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><h3>SQL</h3><p>Querying, database management and performance optimization.</p><div class="meter"><i data-w="88"></i></div></article>
-      <article class="skill"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 3v18"/></svg><h3>Excel</h3><p>Advanced formulas, pivot tables and macros for fast analysis.</p><div class="meter"><i data-w="90"></i></div></article>
-      <article class="skill"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg><h3>Tableau</h3><p>Interactive visualizations and data storytelling.</p><div class="meter"><i data-w="75"></i></div></article>
-      <article class="skill"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><path d="M15 7h5v5"/></svg><h3>Data analytics</h3><p>Data cleaning, exploratory analysis and statistical analysis.</p><div class="meter"><i data-w="92"></i></div></article>
-      <article class="skill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg><h3>Data science</h3><p>Machine learning, predictive modeling and NLP fundamentals.</p><div class="meter"><i data-w="70"></i></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3>Power BI</h3><p>DAX, star schema, Power Query (M), row-level security, performance optimization and dashboard development.</p><div class="meter"><i data-w="95"></i></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><path d="M12 3l9 5v8l-9 5-9-5V8z"/><path d="M12 12l9-4M12 12v9M12 12L3 8"/></svg><h3>Microsoft Fabric</h3><p>ADLS Gen2, Dataflows Gen2, Pipelines, OneLake Shortcuts, capacity management and enterprise reporting.</p><div class="meter"><i data-w="85"></i></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><h3>SQL</h3><p>SQL Server and MySQL: joins, window functions, aggregations and query optimization.</p><div class="meter"><i data-w="88"></i></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 3v18"/></svg><h3>Excel</h3><p>Advanced Excel: Power Query, pivot tables, lookups and data validation.</p><div class="meter"><i data-w="90"></i></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><path d="M8 6L3 12l5 6M16 6l5 6-5 6M14 4l-4 16"/></svg><h3>Python</h3><p>Data analysis with Pandas and NumPy.</p><div class="meter"><i data-w="75"></i></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7l3 9M16 7l-3 9M8.5 6h7"/></svg><h3>Azure and DevOps data</h3><p>Azure DevOps and REST APIs, Azure Synapse Analytics, Jira and Confluence.</p><div class="meter"><i data-w="80"></i></div></article>
     </div>
   </div>
 </section>
 
 <section id="credentials">
   <div class="wrap">
-    <h2>Certified where it counts</h2>
-    <p class="lead">Microsoft-aligned credentials across analytics, Fabric and modern data architecture.</p>
+    <h2>Certifications and recognition</h2>
+    <p class="lead">Credentials in Power BI, SQL and Python, plus the company’s highest internal award, won two years running.</p>
     <div class="certs">
-      <div class="cert"><div class="badge">PL</div><div><h3>PL-300 Power BI Data Analyst</h3><span>Microsoft Certified</span></div></div>
-      <div class="cert"><div class="badge">F</div><div><h3>Fabric Analytics Engineer</h3><span>Microsoft Professional Certificate, Coursera</span></div></div>
-      <div class="cert"><div class="badge">DA</div><div><h3>Data Architecture for Modern Data Stacks</h3><span>Microsoft Professional Certificate, Coursera</span></div></div>
+      <div class="cert"><div class="badge">PL</div><div><h3>PL-300 Power BI Data Analyst Associate</h3><span>Microsoft Certified</span></div></div>
+      <div class="cert"><div class="badge">SQL</div><div><h3>SQL (Advanced)</h3><span>HackerRank Certified</span></div></div>
+      <div class="cert"><div class="badge">Py</div><div><h3>Data Science using Python</h3><span>Digital Vidya, 2019–2020</span></div></div>
+      <div class="cert"><div class="badge">PwC</div><div><h3>Power BI Virtual Case Experience</h3><span>PwC, via Forage</span></div></div>
+      <div class="cert"><div class="badge">★</div><div><h3>CEO Special Award, 2024 and 2025</h3><span>The company’s highest recognition, awarded for analytics delivery and client impact</span></div></div>
     </div>
   </div>
 </section>
 
-<section id="journey" style="padding-top:0">
+<section id="experience" style="padding-top:0">
   <div class="wrap">
-    <h2>The journey so far</h2>
-    <ol class="timeline">
-      <li><small>Now</small><h3>Consulting Analyst, Twimbit</h3><p>Delivering Power BI dashboards, data models and research-backed insights for global ICT, financial services and infrastructure clients.</p></li>
-      <li><small>Before analytics</small><h3>Assistant Professor</h3><p>Taught and mentored students, and learned to explain complex ideas simply.</p></li>
-      <li><small>Early career</small><h3>Medical imaging</h3><p>Worked with image data where precision matters, an early lesson in data quality.</p></li>
-      <li><small>Education</small><h3>M.E. in Information Sciences, Manipal</h3><p>Graduated with a 9.1 CGPA.</p></li>
-    </ol>
+    <h2>Work and experience</h2>
+    <p class="lead">Since September 2023 I’ve delivered analytics for 8+ global enterprise clients across banking, ICT and infrastructure in the Middle East (UAE, Oman) and the Americas. My dashboards support strategic planning and performance tracking, and automation work reduced manual reporting by about 35%.</p>
+    <div class="sectors" aria-label="Sectors served"><span>Banking</span><span>ICT</span><span>Infrastructure</span></div>
+    <div class="tw-grid">
+      <article class="skill"><svg viewBox="0 0 24 24"><path d="M12 3c-4 0-7 1.3-7 3s3 3 7 3 7-1.3 7-3-3-3-7-3zM5 6v6c0 1.7 3 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3 3 7 3s7-1.3 7-3v-6"/></svg><h3>ESG and sustainability reporting</h3><p>For a data center operator in the Middle East, I built a dashboard tracking energy use, carbon emissions and PUE. It cut compliance reporting time by about 30% and gave executives a clear ESG view.</p><div class="tg"><span>Power BI</span><span>DAX</span><span>ESG analytics</span></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3>Risk and lending decisions</h3><p>For a bank in the Middle East, I developed risk analytics models and a scoring and prioritisation framework across ISIC segments, speeding up risk committee decisions by about 25%.</p><div class="tg"><span>Power BI</span><span>Risk analytics</span><span>Data modeling</span></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><path d="M15 7h5v5"/></svg><h3>Agile delivery analytics</h3><p>For a credit union in the US, I built automated dashboards on Azure DevOps REST APIs tracking sprint velocity, lead time and cycle time, saving 10+ hours of manual reporting every week.</p><div class="tg"><span>Power BI</span><span>Azure DevOps</span><span>REST APIs</span></div></article>
+      <article class="skill"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><h3>Survey, NPS and D&amp;I analytics</h3><p>For global networking and telecom clients, I analysed NPS and sentiment trends to inform CX strategy and built a gender-balance report adopted at CXO level.</p><div class="tg"><span>Power BI</span><span>Survey analytics</span><span>KPIs</span></div></article>
+    </div>
+    <p class="tw-note">Client names and figures stay confidential. Full details are in my resume.</p>
   </div>
 </section>
 
@@ -291,7 +296,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
   <div class="wrap">
     <h2>Let’s turn data into opportunity</h2>
     <p class="lead">Open to collaborations and new opportunities. Send a note and I’ll reply soon.</p>
-    <a class="btn primary" href="mailto:pujarsharath10@gmail.com">pujarsharath10@gmail.com</a>
+    <div class="btns" style="justify-content:center"><a class="btn primary" href="mailto:pujarsharath10@gmail.com">pujarsharath10@gmail.com</a><a class="btn ghost" href="https://drive.google.com/file/d/1J_YTUj41FT4mF-oO3naW2Wlmo0nioYhm/view?usp=sharing" target="_blank" rel="noopener">Download resume</a></div>
     <div class="socials">
       <a href="https://www.linkedin.com/in/pujarsharath01/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zM7.1 20.5H3.6V9h3.5v11.5z"/></svg></a>
       <a href="mailto:pujarsharath10@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2V5zm2 2v.5l8 5.5 8-5.5V7H4zm16 3l-8 5.5L4 10v7h16v-7z"/></svg></a>
