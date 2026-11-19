@@ -76,7 +76,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
       <a href="index.html#about">About</a>
       <a href="index.html#skills">Skills</a>
       <a href="index.html#credentials">Credentials</a>
-      <a href="index.html#journey">Journey</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="https://drive.google.com/file/d/1J_YTUj41FT4mF-oO3naW2Wlmo0nioYhm/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
       <a href="projects.html" class="on" aria-current="page">Projects</a>
       <a href="index.html#contact" class="cta">Contact</a>
     </div>
@@ -120,18 +121,15 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
   var GRAD={'power-bi':'#f2a93b,#d9541e','fabric':'#35e0b5,#0a7f78','sql':'#5aa9ff,#2745b8','excel':'#4ccf8a,#0f7d4d'};
   // Optional per-project fields: img (path to your own screenshot, e.g. 'assets/img/sales.png') and url (link to case study or live report).
   var P=[
-   ['Sales Performance Dashboard','Interactive view of sales trends, regional performance and key metrics.','power-bi',['Power BI','DAX','SQL']],
-   ['Financial Performance Report','Dynamic report tracking revenue, expenses and profitability.','power-bi',['Power BI','DAX','Finance']],
-   ['Supply Chain Performance','Dashboard to monitor and optimize logistics KPIs.','power-bi',['Power BI','Logistics','KPIs']],
-   ['HR Workforce Analytics','Workforce demographics, performance and trends report.','power-bi',['Power BI','HR','Workforce']],
-   ['Lakehouse Reporting Pipeline','Ingest, transform and serve data in a Fabric lakehouse for downstream reports.','fabric',['Fabric','Lakehouse','Pipelines']],
-   ['Direct Lake Semantic Model','Governed semantic model on Fabric with fast, always-fresh Power BI reports.','fabric',['Fabric','Direct Lake','Power BI']],
-   ['Optimizing Database Queries','Refactored complex queries to speed up data retrieval.','sql',['SQL','Optimization']],
-   ['Inventory Database Management','Designed a relational database for inventory tracking.','sql',['SQL','Database design']],
-   ['E-commerce Data Analysis','Complex SQL analysis of e-commerce transactions.','sql',['SQL','Data extraction']],
-   ['Automated Inventory Management','Excel tool with VBA macros for efficient inventory tracking.','excel',['Excel','VBA','Automation']],
-   ['Sales Forecasting Model','Dynamic forecast built with pivot tables and advanced Excel.','excel',['Excel','Forecasting']],
-   ['Personal Budget Tracker','Advanced spreadsheet for budgeting and financial planning.','excel',['Excel','Formulas']]
+   ['Enterprise Sales Performance Platform','End-to-end sales analytics on Microsoft Fabric: ADLS Gen2 lakehouse, OneLake Shortcuts for zero-copy access, and automated ETL with Dataflows Gen2 and Pipelines.','fabric',['Fabric','ADLS Gen2','Dataflows Gen2','Pipelines']],
+   ['Sales Analytics Semantic Model','Power BI semantic model with DAX for sales trends, What-If discount simulation, RFM customer segmentation and Pareto profitability analysis.','power-bi',['Power BI','DAX','RFM','What-If']],
+   ['ESG and Sustainability Dashboard','Energy consumption, carbon emissions and PUE tracking for a Middle East data center operator. Cut compliance reporting time by about 30%.','power-bi',['Power BI','ESG','KPIs']],
+   ['Risk Analysis and ISIC Prioritisation','Risk analytics and scoring framework for a Middle East bank. Sped up risk committee decisions by about 25%.','power-bi',['Power BI','Risk analytics','Data modeling']],
+   ['Agile Delivery Analytics','Automated dashboards on Azure DevOps REST APIs for a US credit union: sprint velocity, lead time and cycle time. Saves 10+ hours a week.','power-bi',['Power BI','Azure DevOps','REST APIs']],
+   ['Survey and NPS Analytics','NPS scores and sentiment trends for a global networking and security company, informing CX strategy and shortening response-to-action time.','power-bi',['Power BI','NPS','Survey analytics']],
+   ['Diversity and Inclusion: Gender Balance','KPI report on gender diversity in the executive suite for a global telecom client, adopted at CXO level.','power-bi',['Power BI','DAX','HR analytics']],
+   ['SQL Analysis Across 8 Projects','Business insights across automotive, entertainment, hiring, credit risk and customer experience using joins, window functions and aggregations.','sql',['SQL','Window functions','Aggregations']],
+   ['Interactive Excel Dashboards','Five interactive dashboards built with pivot tables, lookup functions and advanced formulas, reducing manual reporting effort.','excel',['Excel','Pivot tables','Lookups']]
   ].map(function(p){return{t:p[0],d:p[1],c:p[2],g:p[3],i:p[4]||'',u:p[5]||''}});
 
   // Generated dashboard-style preview, used when a project has no screenshot of its own.
